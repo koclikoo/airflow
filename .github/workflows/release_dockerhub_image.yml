@@ -58,16 +58,6 @@ jobs:
       AIRFLOW_VERSION: ${{ github.event.inputs.airflowVersion }}
       AMD_ONLY: ${{ github.event.inputs.amdOnly }}
       LIMIT_PYTHON_VERSIONS: ${{ github.event.inputs.limitPythonVersions }}
-    if: contains(fromJSON('[
-      "ashb",
-      "eladkal",
-      "ephraimbuddy",
-      "jedcunningham",
-      "kaxil",
-      "pierrejeambrun",
-      "potiuk",
-      "utkarsharma2"
-      ]'), github.event.sender.login)
     steps:
       - name: "Input parameters summary"
         shell: bash
