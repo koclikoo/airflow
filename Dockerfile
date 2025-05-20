@@ -1546,7 +1546,7 @@ RUN if [[ -f /docker-context-files/pip.conf ]]; then \
     fi
 
 # Additional PIP flags passed to all pip install commands except reinstalling pip itself
-ARG ADDITIONAL_PIP_INSTALL_FLAGS=""
+ARG ADDITIONAL_PIP_INSTALL_FLAGS="-v"
 
 ARG AIRFLOW_PIP_VERSION
 ARG AIRFLOW_SETUPTOOLS_VERSION
@@ -1580,7 +1580,8 @@ ENV AIRFLOW_PIP_VERSION=${AIRFLOW_PIP_VERSION} \
     AIRFLOW_IMAGE_TYPE=${AIRFLOW_IMAGE_TYPE} \
     AIRFLOW_UID=${AIRFLOW_UID} \
     INCLUDE_PRE_RELEASE=${INCLUDE_PRE_RELEASE} \
-    UPGRADE_RANDOM_INDICATOR_STRING=${UPGRADE_RANDOM_INDICATOR_STRING}
+    UPGRADE_RANDOM_INDICATOR_STRING=${UPGRADE_RANDOM_INDICATOR_STRING} \
+    PIP_VERBOSE=3
 
 
 # Copy all scripts required for installation - changing any of those should lead to
