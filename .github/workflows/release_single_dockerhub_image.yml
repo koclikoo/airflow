@@ -125,6 +125,7 @@ jobs:
       - name: >
           Build regular images: ${{ inputs.airflowVersion }}, ${{ inputs.pythonVersion }}, ${{ matrix.platform }}
         run: >
+          export PIP_VERBOSE=3
           breeze release-management release-prod-images --dockerhub-repo "${REPOSITORY}"
           --airflow-version "${AIRFLOW_VERSION}" ${SKIP_LATEST}
           --python ${PYTHON_MAJOR_MINOR_VERSION}
