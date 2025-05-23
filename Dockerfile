@@ -1845,3 +1845,13 @@ LABEL org.apache.airflow.distro="debian" \
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--", "/entrypoint"]
 CMD []
+
+# Add resolver options to handle complex dependency resolution
+ENV PIP_RESOLVER=backtracking
+ENV UV_RESOLVER=highest
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV UV_NO_PROGRESS=1
+
+# Handle mysqlclient compilation issues
+ENV MYSQLCLIENT_CFLAGS="-std=c99"
+ENV MYSQLCLIENT_LDFLAGS=""
